@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>17</title>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div :style='{border: borderStyle, width: widthStyle, height: heightStyle}'></div>
+		<div :style='objStyles'></div>
+		<div :style='[objStyles,overrideStyles]'></div>
+		<button @click='handle'>切换</button>
+	</div>
+
+	<script type="text/javascript" src="../js/vue.js"></script>
+	<script type="text/javascript">
+		/*
+			样式绑定相关语法细节：
+			1、对象绑定和数组绑定可以结合使用
+			2、class绑定的值哭简化操作
+			3、默认的class如何处理?磨人的class会保留
+		*/
+
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				borderStyle: '1px solid blue',
+				widthStyle: '100px',
+				heightStyle: '200px',
+				objStyles: {
+					border: '1px solid green',
+					width: '200px',
+					height: '100px'
+				},
+				overrideStyles: {
+					border: '5px solid orange',
+					backgroundColor: 'bule'
+				}
+			},
+			methods:{
+				handle: function() {
+					this.heightStyle = '100px';
+					this.objStyles.width = '100px'
+				}
+			}
+		});
+	</script>
+</body>
+</html>

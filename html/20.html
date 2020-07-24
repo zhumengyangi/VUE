@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>20</title>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- value,key,index -->
+		<div v-if='v==12' v-for='(v, k, i) in obj'>{{ v + '---' + k + '---' + i}}</div>
+	</div>
+
+	<script type="text/javascript" src="../js/vue.js"></script>
+	<script type="text/javascript">
+		//使用原生js遍历对象
+		var obj = {
+			uname: 'lisi',
+			age: 12,
+			gender: 'male'
+		}
+		for(var key in obj) {
+			console.log(key, obj[key])
+		}
+		/*
+			循环结构
+			key 帮助Vue区分不同的元素 提高性能
+		*/
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				obj: {
+					uname: 'lisi',
+					age: 12,
+					gender: 'male'
+				}
+
+			},
+			methods:{
+				handle: function () {
+				}
+			}
+		});
+	</script>
+</body>
+</html>

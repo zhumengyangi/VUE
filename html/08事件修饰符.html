@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>08</title>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+	
+	<div id="app">
+		<div>{{num}}</div>
+		<div v-on:click='handle'>
+			<button v-on:click.stop='handle1'> 点击</button>
+		</div>
+		<div>
+			<a href="https://www.baidu.com" v-on:click.prevent='handle2'>百度</a>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="../js/vue.js"></script>
+	<script type="text/javascript">
+		/*
+			事件绑定 注意前后顺序！
+			v-on:click.stop阻止冒泡
+			v-on:click.prevent 阻止跳转
+			v-on:click.stop.prevent 阻止冒泡、跳转
+			https://cn.vuejs.org/v2/guide/events.html
+			https://cn.vuejs.org./v2/api/#v-on
+		*/
+
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				num: 0
+			},
+			methods: {
+				handle:function(){
+					this.num++;
+				},
+				handle1:function(event){
+					//原生js 阻止冒泡
+					// event.stopPropagation();
+				},
+				handle2:function(event){
+					//原生js 阻止跳转
+					// event.preventDefault();
+				}
+			}
+		});
+	</script>
+</body>
+</html>

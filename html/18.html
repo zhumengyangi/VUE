@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>18</title>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div v-if='score>=90'>优秀</div>
+		<div v-else-if='score<90&&score>=80'>良好</div>
+		<div v-else-if='score<80&&score>=60'>一般</div>
+		<div v-else>比较差</div>
+		<div v-show='flag'>测试v-show</div>
+		<button @click='handle'>切换</button>
+	</div>
+
+	<script type="text/javascript" src="../js/vue.js"></script>
+	<script type="text/javascript">
+		/*
+			分支结构
+			v-if 操作dom元素 开销比较大 v-show控制样式是否显示
+		*/
+
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				score: 99,
+				flag: false
+
+			},
+			methods:{
+				handle: function () {
+					this.flag = !this.flag;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

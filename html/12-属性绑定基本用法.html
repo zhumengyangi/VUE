@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>12</title>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+	<div id="app">
+		<a v-bind:href='url'>百度</a>
+		<a :href='url'>百度2</a>
+		<button @click='handle'>切换</button>
+	</div>
+
+	<script type="text/javascript" src="../js/vue.js"></script>
+	<script type="text/javascript">
+		/*
+			属性绑定
+			v-bind:href = :href
+		*/
+
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				url: 'https://www.baidu.com'
+			},
+			methods:{
+				handle: function() {
+					this.url = 'http://itcast.cn'
+				}
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>09</title>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+	
+	<div id="app">
+		<form>
+			<div>
+				用户名：<input type="text" @keyup.delete='clearContent' v-model='uname'>
+			</div>
+			<div>
+				密码：<input type="text" @keyup.enter='handleSubmit' v-model='pwd'>
+			</div>
+			<div>
+				<input type="button" @click='handleSubmit' value="提交">
+			</div>
+		</form>
+	</div>
+
+	<script type="text/javascript" src="../js/vue.js"></script>
+	<script type="text/javascript">
+		/*
+			按键修饰符
+			.enter键盘事件：keyup.enter
+			.delete 清空文本框数据
+			https://cn.vuejs.org/v2/guide/events.html#系统修饰符
+		*/
+
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				uname: '',
+				pwd: ''
+			},
+			methods: {
+				handleSubmit:function(){
+					console.log(this.uname, this.pwd)
+				},
+				clearContent:function(){
+					//按delete键清空
+					this.uname = '';
+				}
+			}
+		});
+	</script>
+</body>
+</html>
